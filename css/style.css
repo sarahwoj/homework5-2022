@@ -1,0 +1,151 @@
+/* logo and animation */
+#logo{
+    width: 475px;
+    animation: hw5_move 5s;
+}
+
+@keyframes hw5_move{
+    from{width: 25px;
+    opacity: 0 ;}
+    to{width: 475px;
+    opacity: 1;}
+}
+
+/* mobile view format */
+body{
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card > header{
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0px 20px 0px ;
+    border-radius: 50px 50px 0px 0px;
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* visited links remain the same color */
+.nav_links :visited, :active{
+    color: blue;
+    text-decoration: none;
+}
+
+/* flex for card and pricing elements in column*/
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px 50px 0px 0px;
+    flex-basis: 450px;
+}
+ .pricing{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* flex for gallery images */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex: none;
+}
+
+/* media query for desktop view */
+@media only screen and (min-width: 900px) {
+    
+    header, .nav_links{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    } 
+
+    /* flex for card and pricing elements in row*/
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 275px;
+    }
+
+    /* header that remains in place while scrolling */
+    body > header{
+        position: sticky;
+        top: 0;
+    }
+
+}
+
+/* reduce motion for logo animation  */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+  }
+
+  
+/* print view format */
+@media print { 
+
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    .nav_links{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 600px;
+    } 
+
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        flex-basis: 325px;
+    }
+
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* no gallery visible on print view */
+    #gallery, .gallery{
+        display: none;
+    }
+
+    /* emoji placement */
+    div ul li:nth-child(2)::after{
+        content: "👍";
+    }
+}
